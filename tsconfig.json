@@ -7,7 +7,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "emitDeclarationOnly": false,
+    "declaration": true
   },
   "include": ["./index.ts"],
   "exclude": ["node_modules", "dist"]

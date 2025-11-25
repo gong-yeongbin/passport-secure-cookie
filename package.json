@@ -1,8 +1,9 @@
 {
   "name": "passport-secure-cookie",
   "version": "0.0.4",
-  "description": "custom passport strategy",
+  "description": "My customized passport strategy",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
