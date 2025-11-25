@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
+      # Add following line if you are publishing to npm
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      NPM_CONFIG_PROVENANCE: true
+      # Add more env variables if needed
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git config
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Set node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          run_install: |
+            - args: [--frozen-lockfile]
+
+      - run: pnpm install
+      - run: pnpm build
+
+      - name: Release Major
+        if: contains(join(github.event.pull_request.labels.*.name, ','), 'major')
+        run: npx release-it major --ci
+
+      - name: Release Minor
+        if: contains(join(github.event.pull_request.labels.*.name, ','), 'minor')
+        run: npx release-it minor --ci
+
+      - name: Release Patch
+        if: contains(join(github.event.pull_request.labels.*.name, ','), 'patch')
+        run: npx release-it patch --ci
