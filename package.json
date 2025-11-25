@@ -1,13 +1,13 @@
 {
   "name": "passport-secure-cookie",
   "version": "1.0.0",
-  "description": "",
+  "description": "custom passport strategy",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.ts",
     "build": "tsc"
   },
-  "keywords": [],
+  "keywords": ["passport", "cookie", "auth"],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.12.4",
@@ -32,5 +32,9 @@
     "express": "^5.1.0",
     "passport": "^0.7.0",
     "passport-strategy": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gong-yeongbin/passport-secure-cookie.git"
   }
 }
