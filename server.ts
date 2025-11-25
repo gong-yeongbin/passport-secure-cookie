@@ -2,14 +2,14 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import passport from 'passport';
 
-import { SecureCookieStrategy } from './index';
+import { Strategy } from './index';
 
 const app = express();
 
 app.use(cookieParser());
 
 passport.use(
-  new SecureCookieStrategy({ cookienameField: 'access_token', passReqToCallback: true }, (request, token, done) => {
+  new Strategy({ cookienameField: 'access_token', passReqToCallback: true }, (request, token, done) => {
     if (!token) {
       return done(null, false, 'error');
     }

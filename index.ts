@@ -1,14 +1,14 @@
-import { Strategy } from 'passport-strategy';
+import { Strategy as PassportStrategy } from 'passport-strategy';
 
 type VerifyFunction = (token: string, done: (error: any, user?: any, info?: any) => void) => void;
 type RequestVerifyFunction = (request: any, token: string, done: (error: any, user?: any, info?: any) => void) => void;
 
-interface StrategyOptions {
+export interface StrategyOptions {
   cookienameField?: string;
   passReqToCallback?: boolean;
 }
 
-export class SecureCookieStrategy extends Strategy {
+export class Strategy extends PassportStrategy {
   public readonly name: string = 'secure-cookie';
   private readonly _cookienameField: string;
   private readonly _passReqToCallback: boolean;
