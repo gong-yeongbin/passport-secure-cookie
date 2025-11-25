@@ -6,7 +6,7 @@
 
 - Passport.js 전략 확장 : Express에서 `passport.use()`로 바로 등록
 - Secure Cookie 기반 인증 : HTTP(S) 환경에서 쿠키를 통해 사용자 검증
-- TypeScript 100% 지원
+- TypeScript 지원
 
 ## 설치
 
@@ -15,7 +15,7 @@
 
 ## 옵션
 
-- `cookieName`: 검사할 쿠키명 (기본값: `'token'`)
+- `cookienameField`: 검사할 쿠키명 (기본값: `'access_token'`)
 - `passReqToCallback`: 콜백에 `req` 객체 전달 여부(기본값: `false`)
 
 ## 라이선스
@@ -28,7 +28,3 @@ MIT
 
 - [Passport.js 공식 문서](https://www.passportjs.org/)
 - [Express 공식 문서](https://expressjs.com/)
-
----
-
-Pull Request와 이슈 환영합니다!
