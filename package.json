@@ -2,12 +2,19 @@
   "name": "passport-secure-cookie",
   "version": "0.0.3",
   "description": "custom passport strategy",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "nodemon server.ts",
-    "build": "tsc"
+    "build": "rimraf ./dist && tsc -p tsconfig.json"
   },
-  "keywords": ["passport", "cookie", "auth"],
+  "keywords": [
+    "passport",
+    "cookie",
+    "auth"
+  ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.12.4",
@@ -24,6 +31,7 @@
     "prettier": "^3.6.2",
     "release-it": "^19.0.6",
     "release-it-pnpm": "^4.6.6",
+    "rimraf": "^6.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
