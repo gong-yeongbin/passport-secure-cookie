@@ -15,7 +15,7 @@
 
 ## 옵션
 
-- `cookienameField`: 검사할 쿠키명 (기본값: `'access_token'`)
+- `cookieNameField`: 설정 쿠키명 (기본값: `'access_token'`)
 - `passReqToCallback`: 콜백에 `req` 객체 전달 여부(기본값: `false`)
 
 ## 라이선스
